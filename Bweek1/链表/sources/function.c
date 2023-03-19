@@ -156,29 +156,35 @@ int isCircleChainListTea(tea* p)
 {
 	if (p == NULL)
 		return 0;
-	tea* u = p;
-	while (1)
+	tea* u1 = p,*u2=p;
+	do
 	{
-		u = u->next;
-		if (u == NULL)
+		u1 = u1->next;
+		u2 = u2->next;
+		if (u2 == NULL)
 			return 0;
-		if (u == p)
-			return 1;
-	}
+		u2 = u2->next;
+	} while (u1 != u2 && u1 != NULL && u2 != NULL);
+	if (u1 == u2)
+		return 1;
+	return 0;
 }
 int isCircleChainListStu(stu* p)
 {
 	if (p == NULL)
 		return 0;
-	stu* u = p;
-	while (1)
+	stu* u1 = p, * u2 = p;
+	do
 	{
-		u = u->next;
-		if (u == NULL)
+		u1 = u1->next;
+		u2 = u2->next;
+		if (u2 == NULL)
 			return 0;
-		if (u == p)
-			return 1;
-	}
+		u2 = u2->next;
+	} while (u1 != u2 && u1 != NULL && u2 != NULL);
+	if (u1 == u2)
+		return 1;
+	return 0;
 }
 stu* reverseStuChainList(stu* p)//非递归,针对双向循环链表
 {
